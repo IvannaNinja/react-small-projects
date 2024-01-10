@@ -1,0 +1,19 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+* {
+  margin: 12px 0 0 0;
+}
+
+.line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.line button,
+.line p {
+  margin: 0 4px;
+}
