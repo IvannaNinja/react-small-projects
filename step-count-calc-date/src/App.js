@@ -13,19 +13,35 @@ function Counter() {
   const [count, setCount] = useState(0);
   const [step, setStep] = useState(1);
 
-  const date = new Date("june 21 2027");
+  const date = new Date("january 11 2024");
   date.setDate(date.getDate() + count);
+
+  function handleReset() {
+    setCount(0);
+    setStep(1);
+  }
 
   return (
     <div>
-      <div className="line">
-        <button onClick={() => setStep((s) => s - 1)}>-</button>
-        <p>Step: {step}</p>
-        <button onClick={() => setStep((s) => s + 1)}>+</button>
+      <div className="slidecontainer">
+        <input
+          type="range"
+          min="1"
+          max="10"
+          value={step}
+          class="slider"
+          id="myRange"
+          onChange={(e) => setStep(Number(e.target.value))}
+        />
+        <p>{step}</p>
       </div>
       <div className="line">
         <button onClick={() => setCount((c) => c - step)}>-</button>
-        <p>Count: {count}</p>
+        <input
+          type="text"
+          value={count}
+          onChange={(e) => setCount(Number(e.target.value))}
+        />
         <button onClick={() => setCount((c) => c + step)}>+</button>
       </div>
       <p>
@@ -38,6 +54,12 @@ function Counter() {
         </span>
         <span>{date.toDateString()}</span>
       </p>
+
+      {count !== 0 || step !== 1 ? (
+        <div>
+          <button onClick={handleReset}>Reset</button>
+        </div>
+      ) : null}
     </div>
   );
 }
