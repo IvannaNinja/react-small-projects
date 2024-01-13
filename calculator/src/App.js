@@ -2,18 +2,18 @@ import { useState } from "react";
 import "./styles.css";
 
 export default function App() {
-  const [bill, setBill] = useState(0); // Initialize with an empty string
+  const [bill, setBill] = useState(0);
   const [service, setService] = useState(0);
   const [friendService, setFriendService] = useState(0);
 
   const calculateTotal = () => {
     const totalService = (service + friendService) / 2;
-    const tipAmount = parseFloat(bill) * (totalService / 100); // Parse the bill value here
+    const tipAmount = parseFloat(bill) * (totalService / 100);
     return parseFloat(bill) + tipAmount;
   };
 
   const reset = () => {
-    setBill(0); // Reset to an empty string
+    setBill(0);
     setService(0);
     setFriendService(0);
   };
@@ -30,7 +30,7 @@ export default function App() {
 
 function Bill({ bill, setBill }) {
   const handleChange = (e) => {
-    setBill(e.target.value); // Directly set the value from the event
+    setBill(e.target.value);
   };
 
   return (
@@ -51,7 +51,6 @@ function Service({ setService }) {
       <p>How did you like the service?</p>
       <select onChange={handleServiceChange} defaultValue="0">
         {" "}
-        {/* Set defaultValue for the select */}
         <option value="0">Dissatisfied (0%)</option>
         <option value="5">It was okay (5%)</option>
         <option value="10">It was good (10%)</option>
@@ -71,7 +70,6 @@ function FriendService({ setFriendService }) {
       <p>How did your friend like the service?</p>
       <select onChange={handleFriendServiceChange} defaultValue="0">
         {" "}
-        {/* Set defaultValue for the select */}
         <option value="0">Dissatisfied (0%)</option>
         <option value="5">It was okay (5%)</option>
         <option value="10">It was good (10%)</option>
@@ -84,7 +82,7 @@ function FriendService({ setFriendService }) {
 function Rest({ total, reset }) {
   return (
     <div className="rest">
-      <h2>You pay ${total.toFixed(2)}</h2>
+      <h2>You pay ${total ? total.toFixed(2) : 0}</h2>
       <button className="btn" onClick={reset}>
         Reset
       </button>
