@@ -1,0 +1,25 @@
+* {
+  margin: 4px 4px 4px 4px;
+  color: #1b1d49;
+  background-color: rgb(255, 232, 254);
+}
+
+.App {
+  font-family: sans-serif;
+  margin-top: 16px;
+}
+
+.div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: cursor;
+}
+
+.rest {
+  margin: 20px 0 8px 4px;
+}
+
+.btn {
+  margin-top: 20px;
+}
