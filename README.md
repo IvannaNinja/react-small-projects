@@ -1,2 +1,1 @@
-# personalized-developer-profile-
-Created with CodeSandbox
+Mini applications and small components
